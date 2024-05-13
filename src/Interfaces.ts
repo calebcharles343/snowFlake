@@ -2,6 +2,7 @@
 //HOMESTORE INTERFACE
 
 import { ChangeEvent } from "react";
+import { FieldValues, UseFormHandleSubmit } from "react-hook-form";
 
 //////////////////////////////////
 export interface HomeStore {
@@ -71,10 +72,14 @@ export interface EditProfileType {
 //FORM INTERFACE
 ///////////////////////////////
 
-export interface FormT {
-  type: "regular" | "modal";
-  onSubmit: any;
-}
+// export interface FormT {
+//   // type: "regular" | "modal";
+//   // children: any;
+//   children: Element[];
+
+//   onSubmit: UseFormHandleSubmit<FieldValues, undefined>;
+//   // onSubmit: any;
+// }
 
 export interface FormDataT {
   created_at: string;
@@ -140,4 +145,13 @@ export interface ChartT {
   dataKey: string;
   width: number;
   height: number;
+}
+
+//////////////////////////////
+//LOGIN INTERFACE
+//////////////////////////////
+
+export interface LoginT {
+  email: string;
+  password: string;
 }

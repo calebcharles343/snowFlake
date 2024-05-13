@@ -3,9 +3,12 @@ import styled, { css } from "styled-components";
 interface ButtonT {
   size: "small" | "medium" | "large" | "fill";
   variation?: "primary" | "secondary" | "danger";
+  type: string;
+  disabled: boolean;
+  onClick: () => void;
 }
 
-const Button = styled.button<ButtonT>`
+const Button = styled.button<Partial<ButtonT>>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,11 +23,12 @@ const Button = styled.button<ButtonT>`
   ${({ size }) =>
     size === "small" &&
     css`
-      font-size: 14px;
+      font-size: 12px;
       line-height: 20px;
       text-transform: uppercase;
       font-weight: 600;
       text-align: center;
+      padding: 1rem 0.8rem;
     `}
 
   ${({ size }) =>
@@ -59,24 +63,24 @@ const Button = styled.button<ButtonT>`
 
 //small
   @media (min-width: 640px) {
-    padding: 5px 10px 5px 10;
+    /* padding: 5px 10px 5px 10; */
   }
 
   //medium
   @media (min-width: 768px) {
-    padding: 10px 0 10px 0;
+    /* padding: 10px 0 10px 0; */
   }
 
   //large
   @media (min-width: 1024px) {
-    padding: 15px 0 15px 0;
-    font-size: 16px;
-    line-height: 24px;
+    /* padding: 15px 0 15px 0; */
+    /* font-size: 16px;
+    line-height: 24px; */
   }
 
   //extra large
   @media (min-width: 1280px) {
-    padding: 20px 0 20px 0;
+    /* padding: 20px 0 20px 0; */
   }
 
   //extra extra large

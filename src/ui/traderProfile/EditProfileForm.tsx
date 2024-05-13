@@ -35,7 +35,6 @@ function EditProfileForm({ userToEdit }: UserTOEditT) {
   });
 
   const { errors } = formState;
-  console.log(errors);
 
   const querryClient = useQueryClient();
 
@@ -44,7 +43,7 @@ function EditProfileForm({ userToEdit }: UserTOEditT) {
     onSuccess: () => {
       toast("User successfully updated");
       querryClient.invalidateQueries({
-        queryKey: ["user"],
+        queryKey: ["userdata"],
       });
       reset();
     },
@@ -52,16 +51,12 @@ function EditProfileForm({ userToEdit }: UserTOEditT) {
   } as any);
 
   function onSubmit(user: any) {
-    console.log(user);
-
     const image = typeof user.image === "string" ? user.image : user.image[0];
     const updateUserData: FormDataT = { ...user, image: image };
     mutate({ updateUserData: updateUserData, id: editId } as any);
   }
 
-  function onError(errors: any) {
-    console.log(errors);
-  }
+  function onError(errors: any) {}
 
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)} type="modal">
@@ -120,10 +115,10 @@ function EditProfileForm({ userToEdit }: UserTOEditT) {
       </FormRow>
 
       <FormRow>
-        <Button size="fill" variation="danger" type="reset">
+        <Button size="small" variation="danger" type="reset">
           Cancel
         </Button>
-        <Button size="fill" variation="primary" disabled={isPending}>
+        <Button size="small" variation="primary" disabled={isPending}>
           {"Edit Profile"}
         </Button>
       </FormRow>

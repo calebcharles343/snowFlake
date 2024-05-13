@@ -7,7 +7,7 @@ export function useUser() {
     data: user,
     error,
   } = useQuery({
-    queryKey: ["user"],
+    queryKey: ["userdata"],
     queryFn: getUser,
   });
 

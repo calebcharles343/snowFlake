@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledFormRow = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 24rem 1fr 1.2fr;
+  /* grid-template-columns: 24rem 1fr 1.2fr; */
   gap: 2.4rem;
 
   padding: 1.2rem 0;
@@ -24,13 +24,11 @@ const StyledFormRow = styled.div`
     display: flex;
     justify-content: flex-end;
     gap: 1.2rem;
-    padding-right: 1.6rem;
   }
 `;
 
 const Label = styled.label`
   font-weight: 500;
-  font-size: large;
 `;
 
 const Error = styled.span`
@@ -38,7 +36,7 @@ const Error = styled.span`
   color: var(--color-red-700);
 `;
 
-function FormRow({ label, error, children }: any) {
+function FormRowVertical({ label, error, children }: any) {
   return (
     <StyledFormRow>
       {label && <Label htmlFor={children.props.id}>{label}</Label>}
@@ -48,4 +46,4 @@ function FormRow({ label, error, children }: any) {
   );
 }
 
-export default FormRow;
+export default FormRowVertical;
