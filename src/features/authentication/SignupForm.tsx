@@ -3,34 +3,57 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import { useSignup } from "./useSignup";
 
 // Email regex: /\S+@\S+\.\S+/
 
-interface FormFields {
-  fullName: string;
+interface FormFieldsT {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   passwordConfirm: string;
 }
 
 function SignupForm() {
+  const { signup, isPending } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } =
-    useForm<FormFields>();
+    useForm<FormFieldsT>();
   const { errors } = formState;
 
-  const onSubmit: SubmitHandler<FormFields> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<FormFieldsT> = ({
+    email,
+    firstName,
+    lastName,
+    password,
+  }) => {
+    signup(
+      { firstName, lastName, email, password }
+      // ,
+      // {
+      //   onSettled: reset,
+      // }
+    );
   };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormRow label="Full name" error={errors?.fullName?.message}>
+      <FormRow label="First name" error={errors?.firstName?.message}>
         <Input
           width="medium"
           type="text"
-          id="fullName"
-          // disabled={isLoading}
-          {...register("fullName", { required: "this field is required" })}
+          id="firstName"
+          disabled={isPending}
+          {...register("firstName", { required: "this field is required" })}
+        />
+      </FormRow>
+      <FormRow label="Last name" error={errors?.lastName?.message}>
+        <Input
+          width="medium"
+          type="text"
+          id="lastName"
+          disabled={isPending}
+          {...register("lastName", { required: "this field is required" })}
         />
       </FormRow>
 
@@ -39,7 +62,7 @@ function SignupForm() {
           width="medium"
           type="email"
           id="email"
-          // disabled={isLoading}
+          disabled={isPending}
           {...register("email", {
             required: "this field is required",
             pattern: {
@@ -58,7 +81,7 @@ function SignupForm() {
           width="medium"
           type="password"
           id="password"
-          // disabled={isLoading}
+          disabled={isPending}
           {...register("password", {
             required: "this field is required",
             minLength: {
@@ -74,7 +97,7 @@ function SignupForm() {
           width="medium"
           type="password"
           id="passwordConfirm"
-          // disabled={isLoading}
+          disabled={isPending}
           {...register("passwordConfirm", {
             required: "this field is required",
             validate: (value) =>
@@ -89,16 +112,12 @@ function SignupForm() {
           variation="danger"
           size="small"
           type="reset"
-          // disabled={isLoading}
+          disabled={isPending}
           onClick={reset}
         >
           Cancel
         </Button>
-        <Button
-          // disabled={isLoading}
-          variation="primary"
-          size="small"
-        >
+        <Button disabled={isPending} variation="primary" size="small">
           Create new user
         </Button>
       </FormRow>

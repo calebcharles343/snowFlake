@@ -7,6 +7,11 @@ import FormRowVertical from "../../ui/FormRowVertical";
 
 import { useLogin } from "./useLogin";
 
+interface FormFields {
+  email: string;
+  password: string;
+}
+
 function LoginForm() {
   const [email, setEmail] = useState("calebcharles343@gmail.com");
   const [password, setPassword] = useState("11111111");
@@ -19,7 +24,7 @@ function LoginForm() {
 
     login(
       { email, password },
-      //if password or email wrong delete input field
+      //if password or email is wrong rest input field
       {
         onSettled: () => {
           setEmail("");

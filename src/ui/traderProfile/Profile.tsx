@@ -3,10 +3,11 @@ import { useState } from "react";
 
 import ProfileFlex from "./ProfileStyle";
 import Modal from "../Modal";
-import EditProfileForm from "./EditProfileForm";
 
 import SpinnerMini from "../SpinnerMini";
-import { FormDataT } from "../../Interfaces";
+import UpdateUserDataForm from "../../features/authentication/UpdateUserDataForm";
+import { UserDataT } from "../../Interfaces";
+// import UpdateUserDataForm from "../../features/authentication/UpdateUserDataForm";
 
 const StyledImg = styled.img`
   border-radius: 100%;
@@ -51,26 +52,22 @@ const ProfileButton = styled.button`
 `;
 
 interface ProfileT {
-  isLoading: boolean;
-  user: FormDataT[];
-  error: Error | null;
+  // isLoading: boolean;
+  user: UserDataT;
+  // error: Error | null;
 }
 
-function Profile({ isLoading, user }: ProfileT) {
+function Profile({ user }: ProfileT) {
   const [isOpen, setIsOpen] = useState(false);
-
-  if (isLoading) return <SpinnerMini />;
-
-  const userData = user![0];
 
   //userData ? useEditProfileStore.setState({ user: userData }) : null;
   //;
 
-  const { image, last_name, first_name } = userData;
+  // const { image, last_name, first_name } = userData;
 
-  const photoSrc = image || "src/data/img/PhotoOutline.jpg";
-  const firstName = first_name || "User";
-  const lastName = last_name || "Name";
+  const photoSrc = user.avatar || "src/data/img/PhotoOutline.jpg";
+  const firstName = user.firstName || "User";
+  const lastName = user.lastName || "Name";
 
   return (
     <>
@@ -85,7 +82,7 @@ function Profile({ isLoading, user }: ProfileT) {
 
       {isOpen && (
         <Modal onCloseModal={() => setIsOpen(false)}>
-          <EditProfileForm userToEdit={userData} />
+          <UpdateUserDataForm />
         </Modal>
       )}
     </>

@@ -57,8 +57,6 @@ export default function HomeAssets() {
     }
   });
 
-  console.log(changeData);
-
   return (
     <StyledMiniChartContainer>
       <StyledMinChart>

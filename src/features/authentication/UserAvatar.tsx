@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useUser } from "./useUser";
+import { useCurrentUser } from "./useCurrentUser";
 const StyledUserAvatar = styled.div`
   display: flex;
   gap: 1.2rem;
@@ -21,9 +21,10 @@ const Avatar = styled.img`
 `;
 
 function UserAvatar() {
-  const { user } = useUser();
+  const { currentUser } = useCurrentUser();
 
-  const { fullName, avatar } = user.user_metadata;
+  const fullName = `${currentUser?.user_metadata.firstName} ${currentUser?.user_metadata.lastName}`;
+  const avatar = `${currentUser?.user_metadata.avatar}`;
 
   return (
     <StyledUserAvatar>

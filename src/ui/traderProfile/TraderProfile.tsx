@@ -5,8 +5,10 @@ import ProfileAccount from "./ProfileAccount";
 import ProfileFlex from "./ProfileStyle";
 import Button from "../Button";
 import { HiArrowsUpDown } from "react-icons/hi2";
-import { FormDataT } from "../../Interfaces";
-import { useUser } from "./useUser";
+import { UserDataT } from "../../Interfaces";
+
+import { useCurrentUser } from "../../features/authentication/useCurrentUser";
+import Spinner from "../Spinner";
 
 const StyledTraderProfile = styled.div`
   background-color: var(--color-brand-50);
@@ -28,17 +30,18 @@ const ButtonTextStyle = styled.div`
 `;
 
 function TraderProfile() {
-  const { isLoading, user, error } = useUser();
+  const { isLoading, currentUser, error } = useCurrentUser();
+
+  if (isLoading) return <Spinner />;
+  const user = currentUser?.user_metadata;
+
+  console.log(user);
 
   return (
     <StyledTraderProfile>
       <ProfileFlex type="containerFlex">
-        <Profile
-          isLoading={isLoading}
-          user={user as FormDataT[]}
-          error={error}
-        />
-        <ProfileAccount data={user as FormDataT[]} isLoading={isLoading} />
+        <Profile user={user as UserDataT} />
+        <ProfileAccount />
         <ProfileAssets />
         <ButtonStyle>
           <Button size="fill" variation="primary">

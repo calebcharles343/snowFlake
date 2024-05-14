@@ -2,7 +2,6 @@
 //HOMESTORE INTERFACE
 
 import { ChangeEvent } from "react";
-import { FieldValues, UseFormHandleSubmit } from "react-hook-form";
 
 //////////////////////////////////
 export interface HomeStore {
@@ -57,41 +56,22 @@ export interface ChartParams {
   name: string;
 }
 
-////////////////////////////
-//SERVICES STORE
-////////////////////////////
-
-export interface EditProfileType {
-  getUser: () => Promise<any[]>;
-  deleteUser: (id: number) => void;
-  createUser: (user: any) => void;
-  editUser: (user: FormDataT, id: number) => void;
-}
-
 ////////////////////////////////
 //FORM INTERFACE
 ///////////////////////////////
 
-// export interface FormT {
-//   // type: "regular" | "modal";
-//   // children: any;
-//   children: Element[];
-
-//   onSubmit: UseFormHandleSubmit<FieldValues, undefined>;
-//   // onSubmit: any;
-// }
-
-export interface FormDataT {
-  created_at: string;
+export interface UserDataT {
+  avatar: string | null;
   email: string;
-  first_name: string;
-  id: number;
-  last_name: string;
-  image: any;
+  email_verifie: boolean;
+  firstName: string;
+  lastName: string;
+  phone_verified: boolean;
+  sub: string;
 }
 
 export interface UserTOEditT {
-  userToEdit: FormDataT;
+  userToEdit: UserDataT;
 }
 
 export interface ModalT {
@@ -154,4 +134,26 @@ export interface ChartT {
 export interface LoginT {
   email: string;
   password: string;
+}
+
+//////////////////////////////
+//SIGNUP INTERFACE
+//////////////////////////////
+export interface SignupT {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  // onSettled: () => void;
+}
+
+//////////////////////////////
+//UPDATE USER INTERFACE
+//////////////////////////////
+
+export interface UpdateUserT {
+  password: string;
+  firstName: string;
+  lastName: string;
+  avatar: string | null;
 }

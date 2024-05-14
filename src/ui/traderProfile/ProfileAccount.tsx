@@ -1,18 +1,16 @@
 import { format } from "date-fns";
-import { FormDataT } from "../../Interfaces";
+import { UserDataT } from "../../Interfaces";
 import SpinnerMini from "../SpinnerMini";
 import ProfileFlex, { LiStyle, SpanStyle, UlStyle } from "./ProfileStyle";
 
 interface ProfileAccountT {
-  data: FormDataT[];
+  data: UserDataT[];
   isLoading: boolean;
 }
 
-function ProfileAccount({ data, isLoading }: ProfileAccountT) {
-  if (isLoading) return <SpinnerMini />;
-  const joined = data![0].created_at;
-
-  const date = format(joined, "MMMM d, yyyy");
+function ProfileAccount() {
+  // const date = format(joined, "MMMM d, yyyy");
+  const date = "April 25, 2024";
 
   return (
     <ProfileFlex type="account">

@@ -1,5 +1,6 @@
 import { HiOutlineUser } from "react-icons/hi2";
 import styled from "styled-components";
+import LogOut from "../features/authentication/LogOut";
 import HomeSearchList from "../features/home/HomeSearchList";
 
 import { StyledNavLink } from "./sidebar/SidebarSytle";
@@ -11,16 +12,27 @@ const StyledHeader = styled.div`
   justify-content: space-between;
 `;
 
+const StyledAuthContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 function Header() {
   return (
     <StyledHeader>
       <HomeSearchList />
-      <div>
+      <StyledAuthContainer>
         <StyledNavLink to="/signup">
           <HiOutlineUser />
           <span>Sign up</span>
         </StyledNavLink>
-      </div>
+
+        <StyledAuthContainer>
+          <LogOut />
+          <span>Log out</span>
+        </StyledAuthContainer>
+      </StyledAuthContainer>
     </StyledHeader>
   );
 }

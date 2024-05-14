@@ -54,7 +54,7 @@ const Change = styled.div`
 function CoinTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
-  const [tcoins, setTcoinst] = useState([]);
+  // const [tcoins, setTcoinst] = useState([]);
 
   const { isLoading, coins } = useCrypto();
   4;
