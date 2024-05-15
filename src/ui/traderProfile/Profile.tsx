@@ -3,10 +3,10 @@ import { useState } from "react";
 
 import ProfileFlex from "./ProfileStyle";
 import Modal from "../Modal";
-
-import SpinnerMini from "../SpinnerMini";
 import UpdateUserDataForm from "../../features/authentication/UpdateUserDataForm";
 import { UserDataT } from "../../Interfaces";
+import UpdatePasswordForm from "../../features/authentication/UpdatePasswordForm";
+import Button from "../Button";
 // import UpdateUserDataForm from "../../features/authentication/UpdateUserDataForm";
 
 const StyledImg = styled.img`
@@ -60,14 +60,26 @@ interface ProfileT {
 function Profile({ user }: ProfileT) {
   const [isOpen, setIsOpen] = useState(false);
 
-  //userData ? useEditProfileStore.setState({ user: userData }) : null;
-  //;
-
-  // const { image, last_name, first_name } = userData;
+  const [editProfile, setEditProfile] = useState(false);
+  const [changePassword, setChangePassword] = useState(false);
 
   const photoSrc = user.avatar || "src/data/img/PhotoOutline.jpg";
   const firstName = user.firstName || "User";
   const lastName = user.lastName || "Name";
+
+  function handleClick() {
+    setIsOpen(!isOpen);
+    setEditProfile(true);
+  }
+
+  function handleEdit() {
+    setEditProfile(true);
+    setChangePassword(false);
+  }
+  function handlePassword() {
+    setChangePassword(true);
+    setEditProfile(false);
+  }
 
   return (
     <>
@@ -75,14 +87,20 @@ function Profile({ user }: ProfileT) {
         <h2>Trader Profile</h2>
         <StyledImg src={` ${photoSrc}`} alt="Avatar" />
         <p>{`${firstName} ${lastName}`} </p>
-        <ProfileButton onClick={() => setIsOpen(!isOpen)}>
-          Edit Profile
-        </ProfileButton>
+        <ProfileButton onClick={handleClick}>Edit Profile</ProfileButton>
       </ProfileFlex>
 
       {isOpen && (
         <Modal onCloseModal={() => setIsOpen(false)}>
-          <UpdateUserDataForm />
+          {editProfile && <UpdateUserDataForm />}
+          {changePassword && <UpdatePasswordForm />}
+          <Button
+            onClick={editProfile ? handlePassword : handleEdit}
+            size="small"
+            variation="secondary"
+          >
+            {editProfile ? "Change password" : "Edit profile"}
+          </Button>
         </Modal>
       )}
     </>

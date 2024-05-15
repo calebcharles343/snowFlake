@@ -1,16 +1,12 @@
 import { format } from "date-fns";
-import { UserDataT } from "../../Interfaces";
-import SpinnerMini from "../SpinnerMini";
 import ProfileFlex, { LiStyle, SpanStyle, UlStyle } from "./ProfileStyle";
 
 interface ProfileAccountT {
-  data: UserDataT[];
-  isLoading: boolean;
+  joined: string;
 }
 
-function ProfileAccount() {
-  // const date = format(joined, "MMMM d, yyyy");
-  const date = "April 25, 2024";
+function ProfileAccount({ joined }: ProfileAccountT) {
+  const date = format(joined, "MMMM d, yyyy") || "April 25, 2024";
 
   return (
     <ProfileFlex type="account">

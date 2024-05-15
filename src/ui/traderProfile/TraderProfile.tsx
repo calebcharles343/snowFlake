@@ -30,18 +30,18 @@ const ButtonTextStyle = styled.div`
 `;
 
 function TraderProfile() {
-  const { isLoading, currentUser, error } = useCurrentUser();
+  const { isLoading, currentUser } = useCurrentUser();
 
   if (isLoading) return <Spinner />;
   const user = currentUser?.user_metadata;
 
-  console.log(user);
+  const joined = currentUser?.confirmed_at!;
 
   return (
     <StyledTraderProfile>
       <ProfileFlex type="containerFlex">
         <Profile user={user as UserDataT} />
-        <ProfileAccount />
+        <ProfileAccount joined={joined} />
         <ProfileAssets />
         <ButtonStyle>
           <Button size="fill" variation="primary">

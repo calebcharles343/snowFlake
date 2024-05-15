@@ -98,7 +98,9 @@ function TableRow({ coin, index }: TableRowT) {
       </Link>
       <Link to={`chart/:${coin.name}`}>
         <Price change={Number(coin.change)}>
-          {formatCurrency(Number(coin.price))}
+          {Number(coin.price) > 1
+            ? formatCurrency(Number(coin.price))
+            : Number(coin.price).toFixed(8)}
         </Price>
       </Link>
       <Link to={`chart/:${coin.name}`}>

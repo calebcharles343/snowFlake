@@ -71,6 +71,7 @@ function HomeSearchList() {
   const { isLoading, coins } = useCrypto();
 
   function handleSearch(e: ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
     setQuerry(e.target.value);
     setIsOpen(true);
   }

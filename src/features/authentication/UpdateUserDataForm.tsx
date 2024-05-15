@@ -2,12 +2,11 @@ import { ChangeEvent } from "react";
 import { useState } from "react";
 import { useUpdateCurrentUser } from "./useUpdateUser";
 import { useCurrentUser } from "./useCurrentUser";
-//import { SubmitHandler, useForm } from "react-hook-form";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-import FileInput from "../../ui/Input";
+import FileInput from "../../ui/FileInput";
 
 function UpdateUserDataForm() {
   // We don't need the loading state, and can immediately use the user data, because we know that it has already been loaded at this point
@@ -26,15 +25,15 @@ function UpdateUserDataForm() {
     e.preventDefault();
 
     if (!firstName && !lastName) return;
+
     updateUser(
-      { firstName, lastName, avatar }
-      // ,
-      // {
-      //   onSuccess: () => {
-      //     setAvatar(null);
-      //     e.target.reset();
-      //   },
-      // }
+      { firstName, lastName, avatar },
+      {
+        onSuccess: () => {
+          setAvatar(null);
+          //  e.target.reset();
+        },
+      }
     );
   }
 
@@ -80,10 +79,17 @@ function UpdateUserDataForm() {
         />
       </FormRow>
       <FormRow>
-        <Button type="reset" variation="secondary" onClick={handleCancel}>
+        <Button
+          type="reset"
+          variation="danger"
+          size="small"
+          onClick={handleCancel}
+        >
           Cancel
         </Button>
-        <Button disabled={isUpdating}>Update account</Button>
+        <Button disabled={isUpdating} variation="primary" size="small">
+          Update account
+        </Button>
       </FormRow>
     </Form>
   );
