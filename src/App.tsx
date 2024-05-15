@@ -1,11 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Assets from "./pages/Assets";
+
 import Chart from "./pages/Chart";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
-import Reports from "./pages/Reports";
-import Support from "./pages/Support";
-import Settings from "./pages/Settings";
+
 import AppLayout from "./ui/AppLayout";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
@@ -41,13 +39,10 @@ function App() {
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="home" element={<Home />} />
-            <Route path="assets" element={<Assets />} />
+
             <Route path="chart" element={<Chart />} />
             <Route path="chart/:name" element={<Chart />} />
             <Route path="dashboard/chart/:name" element={<Chart />} />
-            <Route path="support" element={<Support />} />
-            <Route path="reports" element={<Reports />} />
-            <Route path="settings" element={<Settings />} />
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />

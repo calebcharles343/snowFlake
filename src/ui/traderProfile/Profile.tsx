@@ -60,8 +60,8 @@ interface ProfileT {
 function Profile({ user }: ProfileT) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [editProfile, setEditProfile] = useState(false);
-  const [changePassword, setChangePassword] = useState(false);
+  const [isEditProfile, setIsEditProfile] = useState(false);
+  const [ischangePassword, setIsChangePassword] = useState(false);
 
   const photoSrc = user.avatar || "src/data/img/PhotoOutline.jpg";
   const firstName = user.firstName || "User";
@@ -69,16 +69,16 @@ function Profile({ user }: ProfileT) {
 
   function handleClick() {
     setIsOpen(!isOpen);
-    setEditProfile(true);
+    setIsEditProfile(true);
   }
 
   function handleEdit() {
-    setEditProfile(true);
-    setChangePassword(false);
+    setIsChangePassword(false);
+    setIsEditProfile(true);
   }
   function handlePassword() {
-    setChangePassword(true);
-    setEditProfile(false);
+    setIsEditProfile(false);
+    setIsChangePassword(true);
   }
 
   return (
@@ -91,15 +91,21 @@ function Profile({ user }: ProfileT) {
       </ProfileFlex>
 
       {isOpen && (
-        <Modal onCloseModal={() => setIsOpen(false)}>
-          {editProfile && <UpdateUserDataForm />}
-          {changePassword && <UpdatePasswordForm />}
+        <Modal
+          onCloseModal={() => {
+            setIsOpen(false);
+            setIsEditProfile(false);
+            setIsChangePassword(false);
+          }}
+        >
+          {isEditProfile && <UpdateUserDataForm />}
+          {ischangePassword && <UpdatePasswordForm />}
           <Button
-            onClick={editProfile ? handlePassword : handleEdit}
+            onClick={isEditProfile ? handlePassword : handleEdit}
             size="small"
             variation="secondary"
           >
-            {editProfile ? "Change password" : "Edit profile"}
+            {isEditProfile ? "Change password" : "Edit profile"}
           </Button>
         </Modal>
       )}
