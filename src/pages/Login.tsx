@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import LoginForm from "../features/authentication/LoginForm";
-import Heading from "../ui/Heading";
+
+import LoginSignupform from "../features/authentication/LoginSignupform";
+
 import Logo from "../ui/sidebar/Logo";
 
 const LoginContainer = styled.div`
@@ -23,8 +24,7 @@ function Login() {
     <LoginContainer>
       <LoginLayout>
         <Logo />
-        <Heading as="h2">Log in to your account</Heading>
-        <LoginForm />
+        <LoginSignupform />
       </LoginLayout>
     </LoginContainer>
   );

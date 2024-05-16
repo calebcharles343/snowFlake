@@ -9,13 +9,41 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useSearchCoin } from "../features/charts/useSearchCoin";
 import { useCrypto } from "../features/home/useCrypto";
 import Spinner from "./Spinner";
+import { formatCurrency } from "../utils/helpers";
+import Heading from "./Heading";
 
 const StyledAreaChartUI = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
   height: 40vmax;
+  padding: 5.5rem;
+  margin-top: 5rem;
+`;
+
+const StyledChartHeadingContainer = styled.div`
+  margin-left: 5.5rem;
+`;
+
+interface StyledChartSpanT {
+  change: number;
+}
+const StyledChartSpan = styled.span<StyledChartSpanT>`
+  font-weight: 600;
+  ${({ change }) =>
+    change > 0 &&
+    css`
+      color: #00c49f;
+    `}
+  ${({ change }) =>
+    change < 0 &&
+    css`
+      color: #ff8042;
+    `}
 `;
 
 function AreaChartUI() {
@@ -24,6 +52,8 @@ function AreaChartUI() {
   const params = useParams();
 
   const chartCoin = useSearchCoin(params.name as any);
+
+  console.log(chartCoin);
 
   useEffect(() => {
     if (chartCoin) localStorage.setItem("coinData", JSON.stringify(chartCoin));
@@ -58,9 +88,21 @@ function AreaChartUI() {
   });
 
   const name = chartCoin?.name || localStorageCoinData?.name || "Bitcoin";
+  const price = chartCoin?.price || localStorageCoinData?.price || "Bitcoin";
+  const change = chartCoin?.change || localStorageCoinData?.change || "Bitcoin";
+
   return (
     <StyledAreaChartUI>
-      <span>{`${name} PRICE CHART`}</span>
+      <StyledChartHeadingContainer>
+        <Heading as="h2">
+          <StyledChartSpan change={Number(change)}>
+            {`${name} is now at ${formatCurrency(Number(price))} and ${
+              Number(change) > 0 ? "up" : "down"
+            } by ${change}% today`}{" "}
+          </StyledChartSpan>
+        </Heading>
+      </StyledChartHeadingContainer>
+
       <ResponsiveContainer>
         <AreaChart
           width={500}
