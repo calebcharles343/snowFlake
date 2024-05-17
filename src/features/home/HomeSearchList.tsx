@@ -29,7 +29,7 @@ const StyleCoinList = styled.div`
   font-size: medium;
 
   min-width: 26rem;
-
+  max-height: 80rem;
   position: absolute;
   top: 7.3rem;
   left: 34.8rem;

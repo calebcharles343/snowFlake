@@ -11,14 +11,17 @@ import { useCurrentUser } from "../../features/authentication/useCurrentUser";
 import Spinner from "../Spinner";
 
 const StyledTraderProfile = styled.div`
-  background-color: var(--color-brand-50);
+  background-color: var(--color-brand-0);
 
   grid-column: 3/4;
   grid-row: -4/-3;
 `;
 
 const ButtonStyle = styled.div`
-  align-items: flex-end;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
   /* width: 100%; */
 `;
 
@@ -44,7 +47,7 @@ function TraderProfile() {
         <ProfileAccount joined={joined} />
         <ProfileAssets />
         <ButtonStyle>
-          <Button size="fill" variation="primary">
+          <Button size="large" variation="primary">
             <ButtonTextStyle>
               <HiArrowsUpDown />
               <span>Trade Now</span>

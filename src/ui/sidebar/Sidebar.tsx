@@ -7,11 +7,12 @@ import MainNav from "./MainNav";
 const StyledAside = styled.aside`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   background-color: var(--color-brand-0);
   grid-row: 1/-1;
 
-  padding: 50px 30px;
+  padding: 50px 0 50px 0;
   height: 100vh;
 
   //////////////////////////////////////
@@ -60,7 +61,7 @@ function Sidebar() {
       <Logo />
       <MainNav />
       <ButtonStyle>
-        <Button size="fill" variation="primary">
+        <Button size="large" variation="primary">
           Guide
         </Button>
       </ButtonStyle>

@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 
 import Button from "../../ui/Button";
 import Heading from "../../ui/Heading";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
+
+const StyledFormTextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
 
 function LoginSignupform() {
   const [isLoginForm, setIsLoginForm] = useState(false);
@@ -32,18 +39,18 @@ function LoginSignupform() {
       {isSignupForm && <SignupForm />}
 
       {
-        <div>
+        <StyledFormTextContainer>
           <span>
             {isLoginForm
-              ? `Need an account?. Click here`
-              : `Already have an account? click here`}
+              ? `Need an account?. Click`
+              : `Already have an account? click`}
           </span>
           <Button
             onClick={isLoginForm ? handleSignupForm : handleLoginForm}
             size="small"
             variation="secondary"
           >{`${isLoginForm ? "Sign up" : "Log in"}`}</Button>
-        </div>
+        </StyledFormTextContainer>
       }
     </>
   );

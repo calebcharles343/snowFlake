@@ -4,18 +4,6 @@
 import { ChangeEvent } from "react";
 
 //////////////////////////////////
-export interface HomeStore {
-  coins: Coin[] | undefined;
-  coinsSearched: any;
-  isOpen: boolean;
-  isLoading: boolean;
-  querry: string;
-
-  setIsOpen: () => void;
-  fetchCoins: () => {};
-  setQuerry: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  searchCoins: (querry: string, coin: Coin[] | undefined) => void;
-}
 
 export interface TableCoinsT {
   no_: number;

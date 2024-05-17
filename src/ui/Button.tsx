@@ -95,10 +95,13 @@ const Button = styled.button<Partial<ButtonT>>`
     variation === "primary" &&
     css`
       color: var(--color-brand-50);
-      background-color: var(--color-brand-600);
+
+      background-color: var(--color-grey-1000);
 
       &:hover {
-        background-color: var(--color-brand-700);
+        color: var(--color-grey-1000);
+        background-color: var(--color-brand-0);
+        border: 1px solid var(--color-grey-1000);
       }
     `}
 

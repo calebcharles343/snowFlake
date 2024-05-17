@@ -5,13 +5,13 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 
 import AppLayout from "./ui/AppLayout";
-import Login from "./pages/Login";
+import LoginSignup from "./pages/LoginSignup";
 import PageNotFound from "./pages/PageNotFound";
 import { Toaster } from "react-hot-toast";
 import GlobalStyles from "./styles/GlobalStyles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import SignUp from "./pages/SignUp";
+
 import ProtectedRoute from "./ui/ProtectedRoute";
 
 const querryClient = new QueryClient({
@@ -44,8 +44,8 @@ function App() {
             <Route path="chart/:name" element={<Chart />} />
             <Route path="dashboard/chart/:name" element={<Chart />} />
           </Route>
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="loginSignup" element={<LoginSignup />} />
+
           <Route path="*" element={<PageNotFound />} />
         </Routes>
 

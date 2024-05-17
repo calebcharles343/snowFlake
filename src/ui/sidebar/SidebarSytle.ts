@@ -8,9 +8,9 @@ const StyledSidebar = styled.div`
 
 const NavList = styled.ul`
   display: flex;
+
   flex-direction: column;
   gap: 1.6rem;
-  padding: 0 0 0 0.4rem;
 `;
 
 const List = styled.li`

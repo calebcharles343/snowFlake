@@ -1,29 +1,44 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledLogo = styled.div`
+interface LogoT {
+  size: "medium";
+}
+const StyledLogo = styled.div<Partial<LogoT>>`
   display: flex;
   align-items: center;
   text-align: center;
   gap: 0.5rem;
   margin-bottom: 2rem;
+  ${({ size }) => size === "medium" && css``}
 `;
 
-const Img = styled.img`
+const Img = styled.img<Partial<LogoT>>`
   height: 2.4rem;
   width: auto;
+  ${({ size }) =>
+    size === "medium" &&
+    css`
+      height: 5rem;
+      width: 5rem;
+    `}
 `;
 
-const LogoLebel = styled.p`
+const LogoLebel = styled.p<Partial<LogoT>>`
   font-size: 1.8rem;
-  color: var(--color-indigo-700);
+  color: var(--color-brand-800);
   font-weight: 700;
+  ${({ size }) =>
+    size === "medium" &&
+    css`
+      font-size: 2.8rem;
+    `}
 `;
 function Logo() {
   // const ref = useRef();
   return (
     <StyledLogo>
-      <Img src="\src\data\img\Snoflake.png" alt="Logo" />
-      <LogoLebel>Snowflake</LogoLebel>
+      <Img size="medium" src="\src\data\img\s5.png" alt="Logo" />
+      <LogoLebel size="medium">Snow</LogoLebel>
     </StyledLogo>
   );
 }

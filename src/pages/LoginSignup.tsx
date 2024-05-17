@@ -19,15 +19,37 @@ const LoginLayout = styled.main`
   padding: 0 5% 0 5%;
   margin-top: 0;
 `;
-function Login() {
+
+const StyledLoginSignup = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+`;
+
+const Img = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  /* padding: 5%; */
+`;
+
+function LoginSignup() {
   return (
     <LoginContainer>
       <LoginLayout>
         <Logo />
         <LoginSignupform />
       </LoginLayout>
+      <StyledLoginSignup>
+        <Img src="\src\data\img\s4.png" />
+      </StyledLoginSignup>
     </LoginContainer>
   );
 }
 
-export default Login;
+export default LoginSignup;
