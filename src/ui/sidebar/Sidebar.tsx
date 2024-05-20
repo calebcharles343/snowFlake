@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import Button from "../Button";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
 
@@ -8,13 +7,14 @@ const StyledAside = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  background-color: var(--color-brand-0);
+  justify-content: space-between;
+  background-color: var(--color-grey-0);
   grid-row: 1/-1;
 
   padding: 50px 0 50px 0;
   height: 100vh;
 
+  overflow: hidden;
   //////////////////////////////////////
   //MEDIA QUERRY
   /////////////////////////////////////
@@ -52,18 +52,21 @@ const StyledAside = styled.aside`
   }
 `;
 const ButtonStyle = styled.div`
-  margin-top: auto;
+  position: fixed;
+  top: 84rem;
 `;
 
 function Sidebar() {
   return (
     <StyledAside>
-      <Logo />
-      <MainNav />
+      <div>
+        <Logo />
+        <MainNav />
+      </div>
       <ButtonStyle>
-        <Button size="large" variation="primary">
+        {/* <Button size="large" variation="primary">
           Guide
-        </Button>
+        </Button> */}
       </ButtonStyle>
     </StyledAside>
   );

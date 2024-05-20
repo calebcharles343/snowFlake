@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import LogOut from "../features/authentication/LogOut";
 import HomeSearchList from "../features/home/HomeSearchList";
+import DarkModeToggle from "./DarkModeToggle";
 
 const StyledHeader = styled.div`
   padding: 2rem 2rem 0 2rem;
@@ -13,6 +14,7 @@ const StyledAuthContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 `;
 
 function Header() {
@@ -22,7 +24,7 @@ function Header() {
       <StyledAuthContainer>
         <StyledAuthContainer>
           <LogOut />
-          <span>Log out</span>
+          <DarkModeToggle />
         </StyledAuthContainer>
       </StyledAuthContainer>
     </StyledHeader>

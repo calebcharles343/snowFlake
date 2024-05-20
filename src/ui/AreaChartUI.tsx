@@ -53,8 +53,6 @@ function AreaChartUI() {
 
   const chartCoin = useSearchCoin(params.name as any);
 
-  console.log(chartCoin);
-
   useEffect(() => {
     if (chartCoin) localStorage.setItem("coinData", JSON.stringify(chartCoin));
   }, [params]);
@@ -76,6 +74,12 @@ function AreaChartUI() {
     sparkline = defaultSparkline;
   }
 
+  // const sparks = sparkline.map((spark: string, i: number) => {
+  //   if (i !== 23) return spark;
+  // });
+
+  // console.log(sparks);
+
   let labels: string[] = [];
 
   sparkline.map((_: number, index: number) => labels.push(index.toString()));
@@ -96,9 +100,13 @@ function AreaChartUI() {
       <StyledChartHeadingContainer>
         <Heading as="h2">
           <StyledChartSpan change={Number(change)}>
-            {`${name} is now at ${formatCurrency(Number(price))} and ${
-              Number(change) > 0 ? "up" : "down"
-            } by ${change}% today`}{" "}
+            {`${name} is now at ${
+              price > 1
+                ? formatCurrency(Number(price))
+                : Number(price).toFixed(8)
+            } and ${Number(change) > 0 ? "up" : "down"} by ${Math.abs(
+              change
+            )}% today`}{" "}
           </StyledChartSpan>
         </Heading>
       </StyledChartHeadingContainer>

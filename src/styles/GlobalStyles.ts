@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`:root {
 
  &, &.light-mode{ 
   /* Grey */
-  --color-grey-0: #fff;
+  --color-grey-0:#ebfcfe;
   --color-grey-50: #f9fafb;
   --color-grey-100: #f3f4f6;
   --color-grey-200: #e5e7eb;
@@ -33,6 +33,8 @@ const GlobalStyles = createGlobalStyle`:root {
   --color-red-700: #b91c1c;
   --color-red-800: #991b1b;
 
+  --color-button-P: #18212f;
+
   --backdrop-color: rgba(255, 255, 255, 0.1);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -44,7 +46,8 @@ const GlobalStyles = createGlobalStyle`:root {
   }
   &.dark-mode{
     
---color-grey-0: #18212f;
+/* --color-grey-0: #18212f; */
+--color-grey-0: #181c28;
 --color-grey-50: #111827;
 --color-grey-100: #1f2937;
 --color-grey-200: #374151;
@@ -65,11 +68,14 @@ const GlobalStyles = createGlobalStyle`:root {
 --color-silver-100: #374151;
 --color-silver-700: #f3f4f6;
 --color-indigo-100: #3730a3;
---color-indigo-700: #e0e7ff;
+/* --color-indigo-700: #e0e7ff; */
+--color-indigo-700: #4338ca;
 
 --color-red-100: #fee2e2;
 --color-red-700: #b91c1c;
 --color-red-800: #991b1b;
+
+--color-button-P: #35cbdc;
 
 --backdrop-color: rgba(0, 0, 0, 0.3);
 
@@ -84,7 +90,7 @@ const GlobalStyles = createGlobalStyle`:root {
      /* Aqua inspired by #3be1f4*/
 
  /* --color-brand-0: #e7f5ff; */
- --color-brand-0: #ebfcfe;
+ --color-brand-0: #d8f9fd;
  --color-brand-50:#d8f9fd;
  --color-brand-100: #c4f6fc;
  --color-brand-200: #b1f3fb;

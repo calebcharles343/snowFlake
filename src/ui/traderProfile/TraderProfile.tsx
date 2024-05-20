@@ -3,34 +3,34 @@ import ProfileAssets from "./ProfileAssets";
 import Profile from "./Profile";
 import ProfileAccount from "./ProfileAccount";
 import ProfileFlex from "./ProfileStyle";
-import Button from "../Button";
-import { HiArrowsUpDown } from "react-icons/hi2";
+
 import { UserDataT } from "../../Interfaces";
 
 import { useCurrentUser } from "../../features/authentication/useCurrentUser";
 import Spinner from "../Spinner";
 
 const StyledTraderProfile = styled.div`
-  background-color: var(--color-brand-0);
+  background-color: var(--color-grey-0);
 
   grid-column: 3/4;
   grid-row: -4/-3;
+  overflow: hidden;
 `;
 
-const ButtonStyle = styled.div`
-  display: flex;
+// const ButtonStyle = styled.div`
+//   display: flex;
 
-  align-items: center;
-  justify-content: center;
-  /* width: 100%; */
-`;
+//   align-items: center;
+//   justify-content: center;
+//   /* width: 100%; */
+// `;
 
-const ButtonTextStyle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-`;
+// const ButtonTextStyle = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 5px;
+// `;
 
 function TraderProfile() {
   const { isLoading, currentUser } = useCurrentUser();
@@ -46,14 +46,14 @@ function TraderProfile() {
         <Profile user={user as UserDataT} />
         <ProfileAccount joined={joined} />
         <ProfileAssets />
-        <ButtonStyle>
+        {/* <ButtonStyle>
           <Button size="large" variation="primary">
             <ButtonTextStyle>
               <HiArrowsUpDown />
               <span>Trade Now</span>
             </ButtonTextStyle>
           </Button>
-        </ButtonStyle>
+        </ButtonStyle> */}
       </ProfileFlex>
     </StyledTraderProfile>
   );

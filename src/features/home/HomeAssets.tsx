@@ -22,7 +22,7 @@ const StyledMinChart = styled.div`
 `;
 
 export default function HomeAssets() {
-  const { isLoading, error, coins } = useCrypto();
+  const { isLoading, coins } = useCrypto();
 
   if (isLoading) return <Spinner />;
 

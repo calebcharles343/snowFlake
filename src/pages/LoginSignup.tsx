@@ -6,7 +6,7 @@ import Logo from "../ui/sidebar/Logo";
 
 const LoginContainer = styled.div`
   display: flex;
-  background-color: var(--color-brand-0);
+  background-color: var(--color-grey-0);
   min-height: 100vh;
 `;
 const LoginLayout = styled.main`
