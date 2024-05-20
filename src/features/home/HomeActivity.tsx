@@ -10,7 +10,7 @@ function HomeActivity() {
         <span>COIN LIST</span>
         <HometableOpertions />
       </Row>
-      <CoinTable />;
+      <CoinTable />
     </>
   );
 }

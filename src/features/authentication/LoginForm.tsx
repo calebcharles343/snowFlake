@@ -8,8 +8,8 @@ import FormRowVertical from "../../ui/FormRowVertical";
 import { useLogin } from "./useLogin";
 
 function LoginForm() {
-  const [email, setEmail] = useState("calebcharles34@gmail.com");
-  const [password, setPassword] = useState("88888888");
+  const [email, setEmail] = useState("calebcharles343@gmail.com");
+  const [password, setPassword] = useState("11111111");
 
   const { login, isPending } = useLogin();
 
