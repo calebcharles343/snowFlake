@@ -8,10 +8,7 @@ import {
   Legend,
 } from "recharts";
 
-// const COLORS = ["#00C49F", "#FFBB28", "#0088FE", "#FF8042"];
-//const COLORS = ["#5d6069", "#74777e", "#8c8e94", "	#a3a4a9"];
-// const COLORS = ["#181c28", "#464953", "#74777e", "	#a3a4a9	"];
-const COLORS = ["#3be1f4", "#FFBB28", "#FF8042", "#a3a4a9"];
+const COLORS = ["#35cbdc", "#FFBB28", "#FF8042", "#a3a4a9"];
 
 function RoundPieChart({ data }: Partial<ChartT>) {
   return (
