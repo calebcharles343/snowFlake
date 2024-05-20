@@ -46,7 +46,7 @@ function LoginSignup() {
         <LoginSignupform />
       </LoginLayout>
       <StyledLoginSignup>
-        <Img src="\src\data\img\s4.png" />
+        <Img src="https://puhxyxdebgyylukivpcd.supabase.co/storage/v1/object/public/img/login.png?t=2024-05-20T05%3A10%3A04.735Z" />
       </StyledLoginSignup>
     </LoginContainer>
   );

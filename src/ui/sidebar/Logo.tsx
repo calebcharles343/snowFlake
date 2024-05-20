@@ -37,7 +37,11 @@ function Logo() {
   // const ref = useRef();
   return (
     <StyledLogo>
-      <Img size="medium" src="\src\data\img\s5.png" alt="Logo" />
+      <Img
+        size="medium"
+        src="https://puhxyxdebgyylukivpcd.supabase.co/storage/v1/object/public/Logo/logo.png?t=2024-05-20T05%3A07%3A30.603Z"
+        alt="Logo"
+      />
       <LogoLebel size="medium">Snow</LogoLebel>
     </StyledLogo>
   );
